@@ -4,7 +4,7 @@
     <groupId>com.natancode</groupId>
     <artifactId>reminder-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>quarkus</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <compiler-plugin.version>3.15.0</compiler-plugin.version>
@@ -53,6 +53,19 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>io.smallrye</groupId>
+                <artifactId>jandex-maven-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <id>make-index</id>
+                        <goals>
+                            <goal>jandex</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
